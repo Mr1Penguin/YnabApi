@@ -16,4 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BaseModel.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Midl Include="$(MSBuildThisFileDirectory)IJsonConvertable.idl" />
+  </ItemGroup>
 </Project>

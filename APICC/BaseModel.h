@@ -10,17 +10,13 @@ using rvalue = rapidjson::GenericValue<rapidjson::UTF16<>>;
 
 namespace apicc {
 	struct BaseModel {
-		// internal
 		virtual ~BaseModel() {}
-		virtual void serialize(rwriter & writer) = 0; // writer creates json string from current and nested objects
-		virtual void deserialize(const rvalue & document) = 0; // document created from json string
-		// exposed
-		virtual winrt::hstring serialize() = 0; // get json
-		virtual void deserialize(const winrt::hstring & json) = 0; // fill object from json
+		virtual void Serialize(rwriter & writer) = 0; // writer creates json string from current and nested objects
+		virtual void Deserialize(const rvalue & document) = 0; // document created from json string
 	protected:
 
 		template<class T>
-		void write(winrt::Windows::Foundation::IReference<T> obj, rwriter & writer, wchar_t * key,
+		void Write(winrt::Windows::Foundation::IReference<T> obj, rwriter & writer, wchar_t * key,
 			rapidjson::SizeType keyLength, bool forceNull = false) {
 			if (key != nullptr && (obj || forceNull))
 				writer.Key(key, keyLength);
@@ -37,7 +33,7 @@ namespace apicc {
 		}
 
 		template<class T>
-		winrt::Windows::Foundation::IReference<T> read(const rvalue & document, wchar_t * key) {
+		winrt::Windows::Foundation::IReference<T> Read(const rvalue & document, wchar_t * key) {
 			winrt::Windows::Foundation::IReference<T> obj = nullptr;
 			const rvalue * val = &document;
 			if (key != nullptr) {
