@@ -8,6 +8,8 @@
 
 #include <map>
 
+#include "config.h"
+
 namespace wwh = winrt::Windows::Web::Http;
 
 namespace apicc {
@@ -16,7 +18,6 @@ namespace apicc {
 	public:
 		virtual ~Request() {}
 		//To be set by consumer
-		inline static winrt::hstring BaseUri{ L"" };
 		virtual winrt::Windows::Foundation::IAsyncOperation<T> ExecuteAsync() = 0;
 	protected:
 		winrt::Windows::Foundation::IAsyncOperation<T> ExecuteDefaultGetAsync(winrt::hstring path) {
@@ -32,8 +33,7 @@ namespace apicc {
 				throw;
 			}
 			catch (winrt::hresult_error e) {
-				result.ErrorText().Value = e.message();
-				result.ErrorText().IsNull = false;
+				result.ErrorText({ e.message(), false });
 				co_return result.as<T>();
 			}
 		}
@@ -54,8 +54,7 @@ namespace apicc {
 				throw;
 			}
 			catch (winrt::hresult_error e) {
-				result.ErrorText().Value = e.message();
-				result.ErrorText().IsNull = false;
+				result.ErrorText({ e.message(), false });
 				co_return result.as<T>();
 			}
 		}

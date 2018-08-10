@@ -56,9 +56,7 @@ namespace apicc {
 				auto it = val->FindMember(key);
 				if (it == val->MemberEnd() || it->value.IsNull()) {
 					if constexpr(std::is_same_v<T, winrt::apicc::NullableString>) {
-						winrt::apicc::NullableString res;
-						res.IsNull = true;
-						res.Value = L"";
+						winrt::apicc::NullableString res{ L"", true };
 						return res;
 					}	
 					else {
@@ -73,9 +71,7 @@ namespace apicc {
 				obj = val->GetInt();
 			}
 			else if constexpr(std::is_same_v<T, winrt::apicc::NullableString>) {
-				winrt::apicc::NullableString res;
-				res.IsNull = false;
-				res.Value = val->GetString();
+				winrt::apicc::NullableString res{ val->GetString(), false };
 				return res;
 			}
 
