@@ -11,13 +11,6 @@
 namespace wwh = winrt::Windows::Web::Http;
 
 namespace apicc {
-
-	void a() {
-		winrt::apicc::IModel result{ nullptr };
-		//auto k = result.ErrorText().empty();
-		winrt::Windows::Foundation::IReference<winrt::hstring> a;
-	}
-
 	template<class T>
 	class Request {
 	public:
