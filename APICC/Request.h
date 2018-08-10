@@ -8,7 +8,7 @@
 
 #include <map>
 
-using wwh = winrt::Windows::Web::Http;
+namespace wwh = winrt::Windows::Web::Http;
 
 namespace apicc {
 
