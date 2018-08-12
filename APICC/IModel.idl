@@ -5,6 +5,6 @@ namespace apicc
 	interface IModel
 	{
 		NullableString ErrorText;
-		Boolean IsError;
+		Windows.Foundation.IReference<Boolean> IsError;
 	}
 }
