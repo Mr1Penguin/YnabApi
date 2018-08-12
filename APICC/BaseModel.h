@@ -14,12 +14,12 @@ namespace apicc {
 	struct BaseModel {
 		virtual ~BaseModel() {}
 		virtual void Serialize(rwriter & writer) = 0; // writer creates json string from current and nested objects
-		virtual void Deserialize(const rvalue & document) = 0; // document created from json string
+		virtual void Deserialize(rvalue const & document) = 0; // document created from json string
 	protected:
 
 		template<class T>
 		void Write(winrt::Windows::Foundation::IReference<T> obj, rwriter & writer, wchar_t * key,
-			rapidjson::SizeType keyLength, bool forceNull = false) {
+			rapidjson::SizeType keyLength, bool forceNull = false) noexcept {
 			if (key != nullptr && (obj || forceNull))
 				writer.Key(key, keyLength);
 
@@ -35,7 +35,7 @@ namespace apicc {
 		}
 
 		void Write(winrt::apicc::NullableString const & obj, rwriter & writer, wchar_t * key,
-			rapidjson::SizeType keyLength, bool forceNull = false) {
+			rapidjson::SizeType keyLength, bool forceNull = false) noexcept {
 			if (key != nullptr && (!obj.IsNull || forceNull))
 				writer.Key(key, keyLength);
 
@@ -49,7 +49,7 @@ namespace apicc {
 		}
 
 		template<class T>
-		auto Read(const rvalue & document, wchar_t * key) {
+		auto Read(const rvalue & document, wchar_t * key) noexcept {
 			winrt::Windows::Foundation::IReference<T> obj = nullptr;
 			const rvalue * val = &document;
 			if (key != nullptr) {
@@ -67,7 +67,7 @@ namespace apicc {
 				val = &it->value;
 			}
 
-			if constexpr(std::is_same_v<T, int32_t>) {
+			if constexpr(std::is_same_v<T, int32_t>) noexcept {
 				obj = val->GetInt();
 			}
 			else if constexpr(std::is_same_v<T, winrt::apicc::NullableString>) {
