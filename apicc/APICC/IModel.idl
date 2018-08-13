@@ -1,0 +1,10 @@
+import "NullableString.idl";
+
+namespace apicc
+{
+	interface IModel
+	{
+		NullableString ErrorText;
+		Windows.Foundation.IReference<Boolean> IsError;
+	}
+}
