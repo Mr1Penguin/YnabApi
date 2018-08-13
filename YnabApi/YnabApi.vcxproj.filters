@@ -11,14 +11,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="Class.cpp"/>
-    <ClCompile Include="Generated Files\module.g.cpp">
-        <Filter>Generated Files</Filter>
-    </ClCompile>
+    <ClCompile Include="Class.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClCompile Include="Class.h"/>
+    <ClInclude Include="Class.h" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Class.idl" />
