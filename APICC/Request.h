@@ -6,6 +6,9 @@
 #include "winrt/Windows.Web.Http.h"
 #include "winrt/Windows.Web.Http.Filters.h"
 #include "winrt/apicc.h"
+#include <rapidjson/writer.h>
+#include <rapidjson/document.h>
+#include <rapidjson/stringbuffer.h>
 
 #include <map>
 
@@ -30,11 +33,10 @@ namespace apicc {
 				defHeaders.Accept().Append(wwh::Headers::HttpMediaTypeWithQualityHeaderValue{ L"application/json" });
 				defHeaders.UserAgent().ParseAdd(L"APICC");
 			}
-
 			return instance;
 		}
 
-		inline static auto DelayTime = 0s;
+		inline static std::chrono::seconds DelayTime = 0s;
 
 	private:
 	};
@@ -42,20 +44,21 @@ namespace apicc {
 	template<class T>
 	class Request : public RequestCommon {
 	public:
-		virtual ~Request() {}
+		virtual ~Request<T>() {}
 		//To be set by consumer
 		virtual wf::IAsyncOperation<T> ExecuteAsync() = 0;
 	protected:
 		wf::IAsyncOperation<T> ExecuteDefaultGetAsync(winrt::hstring path) {
 			co_await winrt::resume_background();
-			winrt::apicc::IModel result{ nullptr };
+			T result{ nullptr };
 			try {
 				// await Requester.CheckTokenAsync(cancellationToken).ConfigureAwait(false);
 				if (TokenPassingType == TokenPassingTypes::kParameter)
-					path += L"&" + TokenParamName + L"=" + Token;
+					path = path + L"&" + TokenParamName + L"=" + Token;
 				wf::Uri uri{ BaseUri, path };
-				// result = await Requester.MakeRequestAsync<T>(uri, cancellationToken: cancellationToken).ConfigureAwait(false);
-				co_return result.as<T>();
+				auto method = wwh::HttpMethod::Get();
+				result = co_await MakeRequestAsync(uri, method);
+				co_return T();
 			}
 			catch (winrt::hresult_canceled) {
 				throw;
@@ -78,7 +81,7 @@ namespace apicc {
 				auto vals = winrt::single_threaded_map(std::move(values));
 				wwh::IHttpContent content{ wwh::HttpFormUrlEncodedContent{ vals } };
 				wf::Uri uri{ BaseUri, path };
-				// result = await Requester.MakeRequestAsync<T>(uri, content, method: HttpMethod.Post, cancellationToken: cancellationToken).ConfigureAwait(false);
+				result = co_await MakeRequestAsync(uri, content, wwh::HttpMethod::Post());
 				co_return result.as<T>();
 			}
 			catch (winrt::hresult_canceled) {
@@ -89,9 +92,16 @@ namespace apicc {
 				co_return result.as<T>();
 			}
 		}
+
+		//todo: add patch and delete methods
 	private:
-		wf::IAsyncOperation<T> MakeRequestAsync(wf::Uri const & uri, wwh::IHttpContent const & content, 
-			wwh::HttpMethod const & method){
+		wf::IAsyncOperation<T> MakeRequestAsync(wf::Uri uri,
+			wwh::HttpMethod method) {
+			return MakeRequestAsync(uri, nullptr, method);
+		}
+
+		wf::IAsyncOperation<T> MakeRequestAsync(wf::Uri uri, wwh::IHttpContent const & content, 
+			wwh::HttpMethod method){
 			auto token = co_await winrt::get_cancellation_token();
 			//todo: print some debug log info about request
 			if (token()) throw winrt::hresult_canceled();
