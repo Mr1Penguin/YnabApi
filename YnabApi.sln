@@ -5,7 +5,13 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YnabApi", "YnabApi\YnabApi.vcxproj", "{47D3C853-C865-484B-91F3-90DB5FEAB40C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "APICC", "apicc\APICC\APICC.vcxitems", "{E0F4F008-285D-4F2A-9601-B82A592CFFBC}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		apicc\APICC\APICC.vcxitems*{47d3c853-c865-484b-91f3-90db5feab40c}*SharedItemsImports = 4
+		apicc\APICC\APICC.vcxitems*{e0f4f008-285d-4f2a-9601-b82a592cffbc}*SharedItemsImports = 9
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
