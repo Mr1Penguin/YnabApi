@@ -19,11 +19,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Request.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)config.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <Midl Include="$(MSBuildThisFileDirectory)IJsonConvertable.idl" />
     <Midl Include="$(MSBuildThisFileDirectory)IModel.idl" />
     <Midl Include="$(MSBuildThisFileDirectory)NullableString.idl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)config.cpp" />
   </ItemGroup>
 </Project>

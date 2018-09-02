@@ -24,21 +24,23 @@ namespace apicc {
 	public:
 	protected:
 		static wwh::HttpClient HttpClient() {
-			static wwh::Filters::HttpBaseProtocolFilter filter;
-			static wwh::HttpClient instance{ nullptr };
-			if (!instance) {
-				filter.AutomaticDecompression(true);
-				instance = wwh::HttpClient(filter);
-				auto defHeaders = instance.DefaultRequestHeaders();
-				defHeaders.Accept().Append(wwh::Headers::HttpMediaTypeWithQualityHeaderValue{ L"application/json" });
-				defHeaders.UserAgent().ParseAdd(L"APICC");
-			}
+			static wwh::HttpClient instance = MakeClient();
 			return instance;
 		}
 
 		inline static std::chrono::seconds DelayTime = 0s;
 
 	private:
+
+		static wwf::HttpClient MakeClient() {
+			wwh::Filters::HttpBaseProtocolFilter filter;
+			filter.AutomaticDecompression(true);
+			auto instance = wwh::HttpClient(filter);
+			auto defHeaders = instance.DefaultRequestHeaders();
+			defHeaders.Accept().Append(wwh::Headers::HttpMediaTypeWithQualityHeaderValue{ L"application/json" });
+			defHeaders.UserAgent().ParseAdd(L"APICC");
+			return instance;
+		}
 	};
 
 	template<class T>
