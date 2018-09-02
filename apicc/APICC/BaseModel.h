@@ -55,27 +55,31 @@ namespace apicc {
 			if (key != nullptr) {
 				auto it = val->FindMember(key);
 				if (it == val->MemberEnd() || it->value.IsNull()) {
-					if constexpr(std::is_same_v<T, winrt::apicc::NullableString>) {
-						winrt::apicc::NullableString res{ L"", true };
-						return res;
-					}	
-					else {
-						return obj;
-					}
+					return obj;
 				}
 
 				val = &it->value;
 			}
 
-			if constexpr(std::is_same_v<T, int32_t>) noexcept {
+			if constexpr (std::is_same_v<T, int32_t>) noexcept {
 				obj = val->GetInt();
-			}
-			else if constexpr(std::is_same_v<T, winrt::apicc::NullableString>) {
-				winrt::apicc::NullableString res{ val->GetString(), false };
-				return res;
 			}
 
 			return obj;
+		}
+
+		winrt::apicc::NullableString Read(const rvalue & document, wchar_t * key) {
+			const rvalue * val = &document;
+			if (key != nullptr) {
+				auto it = val->FindMember(key);
+				if (it == val->MemberEnd() || it->value.IsNull()) {
+					return { L"", true };
+				}
+
+				val = &it->value;
+			}
+
+			return { val->GetString(), false };
 		}
 	};
 }

@@ -32,7 +32,7 @@ namespace apicc {
 
 	private:
 
-		static wwf::HttpClient MakeClient() {
+		static wwh::HttpClient MakeClient() {
 			wwh::Filters::HttpBaseProtocolFilter filter;
 			filter.AutomaticDecompression(true);
 			auto instance = wwh::HttpClient(filter);
