@@ -61,14 +61,14 @@ namespace apicc {
 				val = &it->value;
 			}
 
-			if constexpr (std::is_same_v<T, int32_t>) noexcept {
+			if constexpr (std::is_same_v<T, int32_t>) {
 				obj = val->GetInt();
 			}
 
 			return obj;
 		}
 
-		winrt::apicc::NullableString Read(const rvalue & document, wchar_t * key) {
+		winrt::apicc::NullableString Read(const rvalue & document, wchar_t * key) noexcept {
 			const rvalue * val = &document;
 			if (key != nullptr) {
 				auto it = val->FindMember(key);
