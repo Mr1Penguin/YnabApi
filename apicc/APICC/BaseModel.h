@@ -16,11 +16,22 @@ namespace apicc {
 		virtual void Deserialize(const rvalue & document) = 0; // document created from json string
 	protected:
 
+		template<class T, rapidjson::SizeType N>
+		void Write(const T & obj, rwriter & writer, const wchar_t key[N + 1],
+				   bool forceNull = false) noexcept {
+				Write(obj, writer, static_cast<const wchar_t *>(key), N, forceNull);
+		}
+
+		template<rapidjson::SizeType N>
+		void Write<winrt::hstring>(const winrt::hstring & obj, rwriter & writer, const wchar_t (&key) [N]) noexcept {
+			Write(obj, writer, static_cast<const wchar_t *>(key), N - 1);
+		}
+
 		template<class T>
-		void Write(winrt::Windows::Foundation::IReference<T> obj, rwriter & writer, const wchar_t * key,
-			rapidjson::SizeType keyLength, bool forceNull = false) noexcept {
+		void Write(const winrt::Windows::Foundation::IReference<T> & obj, rwriter & writer, const wchar_t * key,
+				   rapidjson::SizeType key_length, bool forceNull = false) noexcept {
 			if (key != nullptr && (obj || forceNull))
-				writer.Key(key, keyLength);
+				writer.Key(key, key_length);
 
 			if (!obj) {
 				if (forceNull)
@@ -34,9 +45,9 @@ namespace apicc {
 		}
 
 		void Write(const winrt::apicc::NullableString & obj, rwriter & writer, const wchar_t * key,
-			rapidjson::SizeType keyLength, bool forceNull = false) noexcept {
+				   rapidjson::SizeType key_length, bool forceNull = false) noexcept {
 			if (key != nullptr && (!obj.IsNull || forceNull))
-				writer.Key(key, keyLength);
+				writer.Key(key, key_length);
 
 			if (obj.IsNull) {
 				if (forceNull)
@@ -48,8 +59,8 @@ namespace apicc {
 		}
 
 		void Write(const winrt::hstring & obj, rwriter & writer, const wchar_t * key,
-				   rapidjson::SizeType keyLength) noexcept {
-			Write({ obj, false }, writer, key, keyLength, false);
+				   rapidjson::SizeType key_length) noexcept {
+			Write({ obj, false }, writer, key, key_length, false);
 		}
 
 		template<class T, bool is_derived>
