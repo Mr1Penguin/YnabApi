@@ -52,50 +52,61 @@ namespace apicc {
 			Write({ obj, false }, writer, key, keyLength, false);
 		}
 
+		template<class T, bool is_derived>
+		struct get_class_type {
+			using type = nullptr_t;
+		};
+
 		template<class T>
-		winrt::Windows::Foundation::IReference<T> Read(const rvalue & document, wchar_t * key) noexcept {
-			winrt::Windows::Foundation::IReference<T> obj = nullptr;
+		struct get_class_type<T, true> {
+			using type = typename T::class_type;
+		};
+
+		template<class T>
+		auto Read(const rvalue & document, const wchar_t * key) noexcept {
+			constexpr bool is_hstring = std::is_same_v<T, winrt::hstring>;
+			constexpr bool is_nullable_string = std::is_same_v<T, winrt::apicc::NullableString>;
+			constexpr bool is_derived_from_base_model = std::is_base_of_v<::apicc::BaseModel, T>;
+			using obj_type = std::conditional_t<is_hstring || is_nullable_string,
+				                                nullptr_t, 
+				                                std::conditional_t<is_derived_from_base_model, 
+				                                                   get_class_type<T, is_derived_from_base_model>::type, 
+				                                                   winrt::Windows::Foundation::IReference<T>>>;
+			obj_type obj = nullptr;
 			const rvalue * val = &document;
 			if (key != nullptr) {
 				auto it = val->FindMember(key);
-				if (it == val->MemberEnd() || it->value.IsNull()) {
-					return obj;
+				if constexpr (!is_hstring) {
+					if (it == val->MemberEnd() || it->value.IsNull()) {
+						if constexpr (is_nullable_string) {
+							return winrt::apicc::NullableString{ winrt::hstring(), true };
+						}
+						else {
+							return obj;
+						}
+					}
 				}
-
 				val = &it->value;
 			}
 
-			if constexpr (std::is_same_v<T, int32_t>) {
-				obj = val->GetInt();
+			if constexpr (is_derived_from_base_model) {
+				obj = winrt::make<T>();
+				auto impl = winrt::make_self<T>(obj);
+				impl->Deserialize(*val);
+				return obj;
 			}
-
-			return obj;
-		}
-
-		template<class T>
-		winrt::apicc::NullableString Read<winrt::apicc::NullableString>(const rvalue & document,
-																		 wchar_t * key) noexcept {
-			const rvalue * val = &document;
-			if (key != nullptr) {
-				auto it = val->FindMember(key);
-				if (it == val->MemberEnd() || it->value.IsNull()) {
-					return { L"", true };
+			else if constexpr (is_nullable_string) {
+				return winrt::apicc::NullableString{ { val->GetString(), val->GetStringLength() }, false };
+			}
+			else if constexpr (is_hstring) {
+				return winrt::hstring{ val->GetString(), val->GetStringLength() };
+			}
+			else {
+				if constexpr (std::is_same_v<T, int32_t>) {
+					obj = val->GetInt();
 				}
-
-				val = &it->value;
+				return obj;
 			}
-
-			return { val->GetString(), false };
-		}
-
-		template<class T>
-		winrt::hstring Read<winrt::hstring>(const rvalue & document, wchar_t * key) noexcept {
-			const rvalue * val = &document;
-			if (key != nullptr) {
-				val = &val->FindMember(key)->value;
-			}
-
-			return val->GetString();
 		}
 	};
 }
