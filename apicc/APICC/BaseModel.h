@@ -123,21 +123,21 @@ namespace apicc {
 			}
 		}
 
-		private:
-			template<class Fn>
-			static bool HandleKeyAndNull(const wchar_t * key, rapidjson::SizeType key_length, 
-										 Fn is_null_pred, bool forceNull, rwriter &writer) {
-				bool is_null = is_null_pred();
-				if (key != nullptr && (!is_null || forceNull))
-					writer.Key(key, key_length);
+	private:
+		template<class Fn>
+		static bool HandleKeyAndNull(const wchar_t * key, rapidjson::SizeType key_length, 
+										Fn is_null_pred, bool forceNull, rwriter &writer) {
+			bool is_null = is_null_pred();
+			if (key != nullptr && (!is_null || forceNull))
+				writer.Key(key, key_length);
 
-				if (is_null) {
-					if (forceNull)
-						writer.Null();
-					return true;
-				}
-
-				return false;
+			if (is_null) {
+				if (forceNull)
+					writer.Null();
+				return true;
 			}
+
+			return false;
+		}
 	};
 }
