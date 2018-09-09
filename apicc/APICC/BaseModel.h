@@ -23,7 +23,7 @@ namespace apicc {
 		template<class T>
 		static void Write(const winrt::Windows::Foundation::IReference<T> & obj, rwriter & writer, const wchar_t * key,
 				   rapidjson::SizeType key_length, bool forceNull = false) noexcept {
-			if (HandleKeyAndNull(key, key_length, [&obj]() { return !obj; }, forceNull, writer))
+			if (HandleKeyAndNull(key, key_length, !obj, forceNull, writer))
 				return;
 
 			if constexpr (std::is_same_v<int32_t, T>) {
@@ -33,7 +33,7 @@ namespace apicc {
 
 		static void Write(const winrt::apicc::NullableString & obj, rwriter & writer, const wchar_t * key,
 				   rapidjson::SizeType key_length, bool forceNull) noexcept {
-			if (HandleKeyAndNull(key, key_length, [&obj]() { return obj.IsNull; }, forceNull, writer))
+			if (HandleKeyAndNull(key, key_length, obj.IsNull, forceNull, writer))
 				return;
 
 			writer.String(obj.Value.c_str(), static_cast<rapidjson::SizeType>(obj.Value.size()));
@@ -48,7 +48,7 @@ namespace apicc {
 		static void Write(::apicc::BaseModel * model, rwriter & writer, const wchar_t * key,
 				   rapidjson::SizeType key_length, bool forceNull) noexcept {
 
-			if (HandleKeyAndNull(key, key_length, [&model]() { return !model; }, forceNull, writer))
+			if (HandleKeyAndNull(key, key_length, !model, forceNull, writer))
 				return;
 
 			writer.StartObject();
@@ -124,10 +124,8 @@ namespace apicc {
 		}
 
 	private:
-		template<class Fn>
 		static bool HandleKeyAndNull(const wchar_t * key, rapidjson::SizeType key_length, 
-										Fn is_null_pred, bool forceNull, rwriter &writer) {
-			bool is_null = is_null_pred();
+									 bool is_null, bool forceNull, rwriter &writer) {
 			if (key != nullptr && (!is_null || forceNull))
 				writer.Key(key, key_length);
 
