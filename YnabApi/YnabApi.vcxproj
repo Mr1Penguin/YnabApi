@@ -87,7 +87,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING</PreprocessorDefinitions>
+      <ConformanceMode Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ConformanceMode>
+      <ConformanceMode Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ConformanceMode>
+      <ConformanceMode Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ConformanceMode>
     </ClCompile>
     <Midl>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ProjectDir)..\apicc\APICC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -101,7 +104,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions);_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING</PreprocessorDefinitions>
+      <ConformanceMode Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ConformanceMode>
+      <ConformanceMode Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ConformanceMode>
+      <ConformanceMode Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ConformanceMode>
     </ClCompile>
     <Midl>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ProjectDir)..\apicc\APICC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -114,22 +120,29 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="Class.h">
-      <DependentUpon>Class.idl</DependentUpon>
+    <ClInclude Include="Models.DateFormat.h">
+      <DependentUpon>Models.DateFormat.idl</DependentUpon>
+      <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Models.BudgetDetail.h">
+      <DependentUpon>Models.BudgetDetail.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models.DateFormat.cpp">
+      <DependentUpon>Models.DateFormat.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="Models.BudgetDetail.cpp">
+      <DependentUpon>Models.BudgetDetail.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Class.cpp">
-      <DependentUpon>Class.idl</DependentUpon>
-    </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="Class.idl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
@@ -138,6 +151,14 @@
     <Text Include="readme.txt">
       <DeploymentContent>false</DeploymentContent>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Models.DateFormat.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Models.BudgetDetail.idl">
+      <SubType>Designer</SubType>
+    </Midl>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

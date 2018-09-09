@@ -1,0 +1,13 @@
+namespace YnabApi
+{
+	namespace Models
+	{
+		[bindable]
+		[default_interface]
+		runtimeclass DateFormat
+		{
+			DateFormat();
+			String Format;
+		}
+	}
+}

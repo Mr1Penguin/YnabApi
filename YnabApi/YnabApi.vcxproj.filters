@@ -8,23 +8,33 @@
     <Filter Include="Generated Files">
       <UniqueIdentifier>{926ab91d-31b4-48c3-b9a4-e681349f27f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{cac1a9db-8fbd-4315-96bc-a67632a5c254}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="Class.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Models.DateFormat.cpp" />
+    <ClCompile Include="Models.BudgetDetail.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Class.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="Class.idl" />
+    <ClInclude Include="Models.DateFormat.h" />
+    <ClInclude Include="Models.BudgetDetail.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Models.BudgetDetail.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Models.DateFormat.idl">
+      <Filter>Models</Filter>
+    </Midl>
   </ItemGroup>
 </Project>

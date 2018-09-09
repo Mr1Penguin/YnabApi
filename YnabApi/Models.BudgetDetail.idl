@@ -1,0 +1,19 @@
+import "NullableString.idl";
+import "Models.DateFormat.idl";
+
+namespace YnabApi
+{
+	namespace Models
+	{
+		[bindable]
+		[default_interface]
+		runtimeclass BudgetDetail
+		{
+			BudgetDetail();
+			String Id;
+			String Name;
+			apicc.NullableString LastModifiedOn;
+			DateFormat DateFormat;
+		}
+	}
+}
