@@ -2,21 +2,21 @@ import "NullableString.idl";
 
 namespace YnabApi
 {
-	namespace Models 
-	{
-		[bindable]
-		[default_interface]
-		runtimeclass CurrencyFormat
-		{
-			CurrencyFormat();
-			String IsoCode;
-			String ExampleFormat;
-			Int32 DecimalDigits;
-			String DecimalSeparator;
-			Boolean SymbolFirst;
-			String GroupSeparator;
-			String CurrencySymbol;
-			Boolean DisplaySymbol;
-		}
-	}
+    namespace Models
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass CurrencyFormat
+        {
+            CurrencyFormat();
+            String IsoCode;
+            String ExampleFormat;
+            Int32 DecimalDigits;
+            String DecimalSeparator;
+            Boolean SymbolFirst;
+            String GroupSeparator;
+            String CurrencySymbol;
+            Boolean DisplaySymbol;
+        }
+    }
 }

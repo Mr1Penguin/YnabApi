@@ -1,8 +1,8 @@
 namespace apicc
 {
-	struct NullableString
-	{
-		String Value;
-		Boolean IsNull;
-	};
+    struct NullableString
+    {
+        String Value;
+        Boolean IsNull;
+    };
 }

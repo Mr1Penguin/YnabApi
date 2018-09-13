@@ -1,8 +1,8 @@
 namespace apicc
 {
-	interface IJsonConvertable
-	{
-		String Serialize();
-		void Deserialize(String json);
-	}
+    interface IJsonConvertable
+    {
+        String Serialize();
+        void Deserialize(String json);
+    }
 }
