@@ -1,5 +1,6 @@
 import "NullableString.idl";
 import "Models.DateFormat.idl";
+import "Models.CurrencyFormat.idl";
 
 namespace YnabApi
 {
@@ -14,6 +15,7 @@ namespace YnabApi
 			String Name;
 			apicc.NullableString LastModifiedOn;
 			DateFormat DateFormat;
+            CurrencyFormat CurrencyFormat;
 		}
 	}
 }

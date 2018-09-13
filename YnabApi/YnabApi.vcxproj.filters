@@ -36,5 +36,8 @@
     <Midl Include="Models.DateFormat.idl">
       <Filter>Models</Filter>
     </Midl>
+    <Midl Include="Models.CurrencyFormat.idl">
+      <Filter>Models</Filter>
+    </Midl>
   </ItemGroup>
 </Project>

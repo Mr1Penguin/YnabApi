@@ -120,6 +120,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Models.CurrencyFormat.h">
+      <DependentUpon>Models.CurrencyFormat.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="Models.DateFormat.h">
       <DependentUpon>Models.DateFormat.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -131,6 +135,10 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models.CurrencyFormat.cpp">
+      <DependentUpon>Models.CurrencyFormat.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="Models.DateFormat.cpp">
       <DependentUpon>Models.DateFormat.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -153,6 +161,9 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
+    <Midl Include="Models.CurrencyFormat.idl">
+      <SubType>Designer</SubType>
+    </Midl>
     <Midl Include="Models.DateFormat.idl">
       <SubType>Designer</SubType>
     </Midl>
