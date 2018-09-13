@@ -8,9 +8,9 @@ namespace YnabApi
     {
         [bindable]
         [default_interface]
-        runtimeclass BudgetDetail
+        runtimeclass BudgetSummary
         {
-            BudgetDetail();
+            BudgetSummary();
             String Id;
             String Name;
             apicc.NullableString LastModifiedOn;

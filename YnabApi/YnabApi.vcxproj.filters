@@ -16,12 +16,20 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="Models.DateFormat.cpp" />
-    <ClCompile Include="Models.BudgetDetail.cpp" />
+    <ClCompile Include="Models.BudgetSummary.BudgetDetail.cpp" />
+    <ClCompile Include="Models.CurrencyFormat.cpp" />
+    <ClCompile Include="Models.BudgetSummary.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Models.DateFormat.h" />
-    <ClInclude Include="Models.BudgetDetail.h" />
+    <ClInclude Include="Models.BudgetSummary.BudgetDetail.h" />
+    <ClInclude Include="Models.CurrencyFormat.h" />
+    <ClInclude Include="Models.BudgetSummary.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
@@ -30,13 +38,13 @@
     <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Models.BudgetDetail.idl">
-      <Filter>Models</Filter>
-    </Midl>
     <Midl Include="Models.DateFormat.idl">
       <Filter>Models</Filter>
     </Midl>
     <Midl Include="Models.CurrencyFormat.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Models.BudgetSummary.idl">
       <Filter>Models</Filter>
     </Midl>
   </ItemGroup>

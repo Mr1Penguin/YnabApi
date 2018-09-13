@@ -1,5 +1,5 @@
 ﻿#include "pch.h"
-#include "Models.BudgetDetail.h"
+#include "Models.BudgetSummary.h"
 #include "Models.DateFormat.h"
 #include "Models.CurrencyFormat.h"
 
@@ -7,7 +7,7 @@ using namespace winrt;
 
 namespace winrt::YnabApi::Models::implementation
 {
-    void BudgetDetail::Serialize(rwriter & writer) {
+    void BudgetSummary::Serialize(rwriter & writer) {
         Write(m_id, writer, L"id");
         Write(m_name, writer, L"name");
         Write(m_last_modified_on, writer, L"last_modified_on");
@@ -15,7 +15,7 @@ namespace winrt::YnabApi::Models::implementation
         Write(get_self<implementation::CurrencyFormat>(m_currency_format), writer, L"currency_format");
     }
 
-    void BudgetDetail::Deserialize(const rvalue & document) {
+    void BudgetSummary::Deserialize(const rvalue & document) {
         m_id = Read<winrt::hstring>(document, L"id");
         m_name = Read<winrt::hstring>(document, L"name");
         m_last_modified_on = Read<apicc::NullableString>(document, L"last_modified_on");
