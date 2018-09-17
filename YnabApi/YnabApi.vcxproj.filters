@@ -16,18 +16,16 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="Models.DateFormat.cpp" />
-    <ClCompile Include="Models.BudgetSummary.BudgetDetail.cpp" />
     <ClCompile Include="Models.CurrencyFormat.cpp" />
-    <ClCompile Include="Models.BudgetSummary.cpp">
+    <ClCompile Include="Models.Budget.Budget.BudgetSummary.cpp">
       <Filter>Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Models.DateFormat.h" />
-    <ClInclude Include="Models.BudgetSummary.BudgetDetail.h" />
     <ClInclude Include="Models.CurrencyFormat.h" />
-    <ClInclude Include="Models.BudgetSummary.h">
+    <ClInclude Include="Models.Budget.Budget.BudgetSummary.h">
       <Filter>Models</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +42,7 @@
     <Midl Include="Models.CurrencyFormat.idl">
       <Filter>Models</Filter>
     </Midl>
-    <Midl Include="Models.BudgetSummary.idl">
+    <Midl Include="Models.Budget.idl">
       <Filter>Models</Filter>
     </Midl>
   </ItemGroup>

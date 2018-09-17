@@ -4,15 +4,15 @@
 
 #pragma once
 
-#include "Models.BudgetSummary.g.h"
+#include "Models.Budget.g.h"
 
 namespace mp = winrt::YnabApi::Models;
 
 namespace winrt::YnabApi::Models::implementation
 {
-    struct BudgetSummary : BudgetSummaryT<BudgetSummary>, ::apicc::BaseModel
+    struct Budget : BudgetT<Budget>, ::apicc::BaseModel
     {
-        BudgetSummary() = default;
+        Budget() = default;
         hstring Id() const noexcept { return m_id; }
         void Id(const hstring & id) noexcept { m_id = id; }
         hstring Name() const noexcept { return m_name; }
@@ -38,7 +38,7 @@ namespace winrt::YnabApi::Models::implementation
 
 namespace winrt::YnabApi::Models::factory_implementation
 {
-    struct BudgetSummary : BudgetSummaryT<BudgetSummary, Models::implementation::BudgetSummary>
+    struct Budget : BudgetT<Budget, Models::implementation::Budget>
     {
     };
 }
