@@ -120,6 +120,18 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Models.Error.h">
+      <DependentUpon>Models.Error.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Models.BudgetsResponse.h">
+      <DependentUpon>Models.BudgetsResponse.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Requests.BudgetsRequest.h">
+      <DependentUpon>Requests.BudgetsRequest.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="Models.Budget.h">
       <DependentUpon>Models.Budget.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -135,6 +147,18 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models.Error.cpp">
+      <DependentUpon>Models.Error.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="Models.BudgetsResponse.cpp">
+      <DependentUpon>Models.BudgetsResponse.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="Requests.BudgetsRequest.cpp">
+      <DependentUpon>Requests.BudgetsRequest.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="Models.Budget.cpp">
       <DependentUpon>Models.Budget.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -161,6 +185,15 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
+    <Midl Include="Models.Error.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Models.BudgetsResponse.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Requests.BudgetsRequest.idl">
+      <SubType>Designer</SubType>
+    </Midl>
     <Midl Include="Models.CurrencyFormat.idl">
       <SubType>Designer</SubType>
     </Midl>

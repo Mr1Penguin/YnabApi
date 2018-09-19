@@ -1,0 +1,14 @@
+import "Models.BudgetsResponse.idl";
+
+namespace YnabApi
+{
+    namespace Requests
+    {
+        [default_interface]
+        runtimeclass BudgetsRequest
+        {
+            BudgetsRequest();
+            Windows.Foundation.IAsyncOperation<YnabApi.Models.BudgetsResponse> ExecuteAsync();
+        }
+    }
+}

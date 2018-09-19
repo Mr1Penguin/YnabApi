@@ -1,0 +1,15 @@
+import "Models.Error.idl";
+
+namespace YnabApi
+{
+    namespace Models 
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass BudgetsResponse
+        {
+            BudgetsResponse();
+            Error Error;
+        }
+    }
+}

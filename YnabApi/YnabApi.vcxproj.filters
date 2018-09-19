@@ -11,23 +11,22 @@
     <Filter Include="Models">
       <UniqueIdentifier>{cac1a9db-8fbd-4315-96bc-a67632a5c254}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Requests">
+      <UniqueIdentifier>{e06f03a4-40fd-4520-bb2d-0bc9495c8c6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="Models.DateFormat.cpp" />
     <ClCompile Include="Models.CurrencyFormat.cpp" />
-    <ClCompile Include="Models.Budget.Budget.BudgetSummary.cpp">
-      <Filter>Models</Filter>
-    </ClCompile>
+    <ClCompile Include="Models.Budget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Models.DateFormat.h" />
     <ClInclude Include="Models.CurrencyFormat.h" />
-    <ClInclude Include="Models.Budget.Budget.BudgetSummary.h">
-      <Filter>Models</Filter>
-    </ClInclude>
+    <ClInclude Include="Models.Budget.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
@@ -43,6 +42,15 @@
       <Filter>Models</Filter>
     </Midl>
     <Midl Include="Models.Budget.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Requests.BudgetsRequest.idl">
+      <Filter>Requests</Filter>
+    </Midl>
+    <Midl Include="Models.BudgetsResponse.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Models.Error.idl">
       <Filter>Models</Filter>
     </Midl>
   </ItemGroup>

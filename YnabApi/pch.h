@@ -6,6 +6,7 @@
 #pragma once
 
 #include "winrt/Windows.Foundation.h"
+#include "winrt/Windows.Web.Http.Headers.h"
 
 #include <fmt/format.h>
 #include "BaseModel.h"
