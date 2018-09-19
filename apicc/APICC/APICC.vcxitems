@@ -23,7 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Midl Include="$(MSBuildThisFileDirectory)IJsonConvertable.idl" />
-    <Midl Include="$(MSBuildThisFileDirectory)IModel.idl" />
     <Midl Include="$(MSBuildThisFileDirectory)NullableString.idl" />
   </ItemGroup>
 </Project>
