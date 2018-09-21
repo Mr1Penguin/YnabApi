@@ -7,6 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YnabApi", "YnabApi\YnabApi.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "APICC", "apicc\APICC\APICC.vcxitems", "{E0F4F008-285D-4F2A-9601-B82A592CFFBC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15DB7576-6013-4AE8-9303-F9681A9EDE57}"
+	ProjectSection(SolutionItems) = preProject
+		.clang-format = .clang-format
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		apicc\APICC\APICC.vcxitems*{47d3c853-c865-484b-91f3-90db5feab40c}*SharedItemsImports = 4

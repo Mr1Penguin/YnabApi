@@ -21,12 +21,18 @@
     <ClCompile Include="Models.DateFormat.cpp" />
     <ClCompile Include="Models.CurrencyFormat.cpp" />
     <ClCompile Include="Models.Budget.cpp" />
+    <ClCompile Include="Models.Error.cpp" />
+    <ClCompile Include="Models.BudgetsResponse.cpp" />
+    <ClCompile Include="Requests.BudgetsRequest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Models.DateFormat.h" />
     <ClInclude Include="Models.CurrencyFormat.h" />
     <ClInclude Include="Models.Budget.h" />
+    <ClInclude Include="Models.Error.h" />
+    <ClInclude Include="Models.BudgetsResponse.h" />
+    <ClInclude Include="Requests.BudgetsRequest.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
