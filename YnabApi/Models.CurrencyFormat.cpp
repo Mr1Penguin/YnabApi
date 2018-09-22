@@ -1,5 +1,5 @@
-﻿#include "Models.CurrencyFormat.h"
-#include "pch.h"
+﻿#include "pch.h"
+#include "Models.CurrencyFormat.h"
 
 using namespace winrt;
 

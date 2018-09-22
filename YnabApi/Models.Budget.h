@@ -34,5 +34,5 @@ private:
 } // namespace winrt::YnabApi::Models::implementation
 
 namespace winrt::YnabApi::Models::factory_implementation {
-struct Budget : BudgetT<Budget, Models::implementation::Budget> {};
+struct Budget : BudgetT<Budget, implementation::Budget> {};
 } // namespace winrt::YnabApi::Models::factory_implementation

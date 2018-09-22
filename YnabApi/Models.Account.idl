@@ -1,0 +1,12 @@
+namespace YnabApi
+{
+    namespace Models
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass Account
+        {
+            Account();
+        }
+    }
+}

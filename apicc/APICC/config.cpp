@@ -1,5 +1,5 @@
-#include "config.h"
 #include "pch.h"
+#include "config.h"
 
 namespace apicc {
 winrt::hstring Token;

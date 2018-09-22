@@ -59,5 +59,8 @@
     <Midl Include="Models.Error.idl">
       <Filter>Models</Filter>
     </Midl>
+    <Midl Include="Models.Account.idl">
+      <Filter>Models</Filter>
+    </Midl>
   </ItemGroup>
 </Project>

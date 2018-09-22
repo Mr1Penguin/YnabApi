@@ -20,5 +20,5 @@ private:
 } // namespace winrt::YnabApi::Models::implementation
 
 namespace winrt::YnabApi::Models::factory_implementation {
-struct DateFormat : DateFormatT<DateFormat, Models::implementation::DateFormat> {};
+struct DateFormat : DateFormatT<DateFormat, implementation::DateFormat> {};
 } // namespace winrt::YnabApi::Models::factory_implementation

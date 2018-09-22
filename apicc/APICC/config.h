@@ -3,7 +3,7 @@
 #include "winrt/base.h"
 
 namespace apicc {
-enum class TokenPassingTypes { kHeader, kParameter };
+enum class TokenPassingTypes { Header, Parameter };
 
 extern winrt::hstring Token;
 extern winrt::hstring TokenParamName;

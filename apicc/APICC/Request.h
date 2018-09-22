@@ -56,7 +56,7 @@ protected:
     typename T::class_type result{nullptr};
     try {
       // await Requester.CheckTokenAsync(cancellationToken).ConfigureAwait(false);
-      if (TokenPassingType == TokenPassingTypes::kParameter)
+      if (TokenPassingType == TokenPassingTypes::Parameter)
         path = path + L"&" + TokenParamName + L"=" + Token;
       wf::Uri uri{BaseUri, path};
       auto method = wwh::HttpMethod::Get();
@@ -76,7 +76,7 @@ protected:
     T result{nullptr};
     try {
       // await Requester.CheckTokenAsync(cancellationToken).ConfigureAwait(false);
-      if (TokenPassingType == TokenPassingTypes::kParameter) {
+      if (TokenPassingType == TokenPassingTypes::Parameter) {
         values.emplace({TokenParamName, Token});
       }
       auto vals = winrt::single_threaded_map(std::move(values));
@@ -154,10 +154,10 @@ private:
     httpRequestMessage.Content(content);
     auto headers = httpRequestMessage.Headers();
     switch (TokenPassingType) {
-    case TokenPassingTypes::kHeader:
+    case TokenPassingTypes::Header:
       headers.Append(TokenParamName, Token);
       break;
-    case TokenPassingTypes::kParameter:
+    case TokenPassingTypes::Parameter:
       // handled by ExecuteDefaultMETHODAsync
       break;
     default:

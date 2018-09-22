@@ -1,7 +1,7 @@
-﻿#include "Models.Budget.h"
+﻿#include "pch.h"
+#include "Models.Budget.h"
 #include "Models.CurrencyFormat.h"
 #include "Models.DateFormat.h"
-#include "pch.h"
 
 using namespace winrt;
 

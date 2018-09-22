@@ -128,6 +128,10 @@
       <DependentUpon>Models.BudgetsResponse.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Models.Account.h">
+      <DependentUpon>Models.Account.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="Requests.BudgetsRequest.h">
       <DependentUpon>Requests.BudgetsRequest.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -147,6 +151,10 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Models.Account.cpp">
+      <DependentUpon>Models.Account.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="Models.Error.cpp">
       <DependentUpon>Models.Error.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -189,6 +197,9 @@
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Models.BudgetsResponse.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Models.Account.idl">
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Requests.BudgetsRequest.idl">
