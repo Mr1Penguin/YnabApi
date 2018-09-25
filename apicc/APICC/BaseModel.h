@@ -244,6 +244,8 @@ protected:
         return val->GetBool();
       } else if constexpr (std::is_same_v<T, int32_t>) {
         return val->GetInt();
+      } else if constexpr (std::is_same_v<T, int64_t>) {
+        return val->GetInt64();
       }
     }
   }
