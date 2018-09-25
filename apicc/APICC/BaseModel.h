@@ -84,6 +84,8 @@ protected:
       writer.Bool(obj);
     } else if constexpr (std::is_same_v<int32_t, T>) {
       writer.Int(obj);
+    } else if constexpr (std::is_same_v<int64_t, T>) {
+      writer.Int64(obj);
     }
   }
 
