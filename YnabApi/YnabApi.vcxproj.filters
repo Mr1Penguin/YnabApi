@@ -14,6 +14,9 @@
     <Filter Include="Requests">
       <UniqueIdentifier>{e06f03a4-40fd-4520-bb2d-0bc9495c8c6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{fd495f10-318d-46af-86fd-1f6288ad2929}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -24,6 +27,9 @@
     <ClCompile Include="Models.Error.cpp" />
     <ClCompile Include="Models.BudgetsResponse.cpp" />
     <ClCompile Include="Requests.BudgetsRequest.cpp" />
+    <ClCompile Include="EnumHelper.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -33,6 +39,9 @@
     <ClInclude Include="Models.Error.h" />
     <ClInclude Include="Models.BudgetsResponse.h" />
     <ClInclude Include="Requests.BudgetsRequest.h" />
+    <ClInclude Include="EnumHelper.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />

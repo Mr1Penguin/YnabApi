@@ -120,6 +120,7 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EnumHelper.h" />
     <ClInclude Include="Models.Error.h">
       <DependentUpon>Models.Error.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -151,6 +152,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EnumHelper.cpp" />
     <ClCompile Include="Models.Account.cpp">
       <DependentUpon>Models.Account.idl</DependentUpon>
       <SubType>Code</SubType>

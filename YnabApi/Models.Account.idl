@@ -2,11 +2,37 @@ namespace YnabApi
 {
     namespace Models
     {
+        enum AccountType {
+            Checking,
+            Savings,
+            Cash,
+            CreditCard,
+            LineOfCredit,
+            OtherAsset,
+            OtherLiability,
+            PayPal,
+            MerchantAccount,
+            InvestmentAccount,
+            Mortgage,
+            Unknown
+        };  
+
         [bindable]
         [default_interface]
         runtimeclass Account
         {
             Account();
+            String Id;
+            String Name;
+            AccountType Type;
+            Boolean OnBudget;
+            Boolean Closed;
+            String Note;
+            Int64 Balance;
+            Int64 ClearedBalance;
+            Int64 UnclearedBalance;
+            String TransferPayeeId;
+            Boolean Delete;
         }
     }
 }

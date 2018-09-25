@@ -10,3 +10,4 @@
 
 #include <fmt/format.h>
 #include "BaseModel.h"
+#include "EnumHelper.h"
