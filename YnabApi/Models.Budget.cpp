@@ -3,6 +3,7 @@
 #include "Models.CurrencyFormat.h"
 #include "Models.DateFormat.h"
 #include "Models.Account.h"
+#include "Models.Payee.h"
 
 using namespace winrt;
 
@@ -14,6 +15,7 @@ void Budget::Serialize(rwriter &writer) {
   Write(get_self<implementation::DateFormat>(m_date_format), writer, L"date_format");
   Write(get_self<implementation::CurrencyFormat>(m_currency_format), writer, L"currency_format");
   Write<implementation::Account>(m_accounts, writer, L"accounts");
+  Write<implementation::Payee>(m_payees, writer, L"payees");
 }
 
 void Budget::Deserialize(const rvalue &document) {
@@ -23,5 +25,6 @@ void Budget::Deserialize(const rvalue &document) {
   m_date_format = Read<implementation::DateFormat>(document, L"date_format");
   m_currency_format = Read<implementation::CurrencyFormat>(document, L"currency_format");
   m_accounts = Read<TVec<implementation::Account>>(document, L"accounts");
+  m_payees = Read<TVec<implementation::Payee>>(document, L"payees");
 }
 } // namespace winrt::YnabApi::Models::implementation

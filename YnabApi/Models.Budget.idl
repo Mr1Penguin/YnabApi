@@ -2,6 +2,7 @@ import "NullableString.idl";
 import "Models.DateFormat.idl";
 import "Models.CurrencyFormat.idl";
 import "Models.Account.idl";
+import "Models.Payee.idl";
 
 namespace YnabApi
 {
@@ -18,6 +19,7 @@ namespace YnabApi
             DateFormat DateFormat;
             CurrencyFormat CurrencyFormat;
             Windows.Foundation.Collections.IVector<Account> Accounts;
+            Windows.Foundation.Collections.IVector<Payee> Payees;
         }
     }
 }

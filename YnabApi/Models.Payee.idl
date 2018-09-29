@@ -1,0 +1,16 @@
+namespace YnabApi
+{
+    namespace Models
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass Payee 
+        {
+            Payee();
+            String Id;
+            String Name;
+            String TransferAccountId;
+            Boolean Deleted;
+        }
+    }
+}

@@ -30,6 +30,7 @@
     <ClCompile Include="EnumHelper.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="Models.Account.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="EnumHelper.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Models.Account.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
@@ -69,6 +71,9 @@
       <Filter>Models</Filter>
     </Midl>
     <Midl Include="Models.Account.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Models.Payee.idl">
       <Filter>Models</Filter>
     </Midl>
   </ItemGroup>
