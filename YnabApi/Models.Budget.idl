@@ -1,6 +1,7 @@
 import "NullableString.idl";
 import "Models.DateFormat.idl";
 import "Models.CurrencyFormat.idl";
+import "Models.Account.idl";
 
 namespace YnabApi
 {
@@ -16,6 +17,7 @@ namespace YnabApi
             apicc.NullableString LastModifiedOn;
             DateFormat DateFormat;
             CurrencyFormat CurrencyFormat;
+            Windows.Foundation.Collections.IVector<Account> Accounts;
         }
     }
 }

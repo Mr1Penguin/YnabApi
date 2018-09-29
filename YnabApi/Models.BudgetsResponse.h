@@ -13,6 +13,8 @@ struct BudgetsResponse : BudgetsResponseT<BudgetsResponse>, ::apicc::BaseModel {
   BudgetsResponse() = default;
   mp::Error Error() const noexcept { return m_error; }
   void Error(mp::Error error) noexcept { m_error = error; }
+  Windows::Foundation::Collections::IVector<mp::Budget> Budgets() { return m_budgets; }
+  void Budgets(const Windows::Foundation::Collections::IVector<mp::Budget> &budgets) { m_budgets = budgets; }
 
   virtual void Serialize(rwriter &writer) override;
   virtual void Deserialize(rvalue const &document) override;

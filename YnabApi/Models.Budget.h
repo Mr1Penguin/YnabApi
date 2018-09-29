@@ -21,6 +21,8 @@ struct Budget : BudgetT<Budget>, ::apicc::BaseModel {
   void DateFormat(mp::DateFormat date_format) noexcept { m_date_format = date_format; }
   mp::CurrencyFormat CurrencyFormat() const noexcept { return m_currency_format; }
   void CurrencyFormat(mp::CurrencyFormat currency_format) noexcept { m_currency_format = currency_format; }
+  winrt::Windows::Foundation::Collections::IVector<mp::Account> Accounts() { return m_accounts; }
+  void Accounts(const winrt::Windows::Foundation::Collections::IVector<mp::Account> &accounts) { m_accounts = accounts; }
   virtual void Serialize(rwriter &writer) override;
   virtual void Deserialize(rvalue const &document) override;
 
@@ -30,6 +32,7 @@ private:
   apicc::NullableString m_last_modified_on;
   mp::DateFormat m_date_format{nullptr};
   mp::CurrencyFormat m_currency_format{nullptr};
+  winrt::Windows::Foundation::Collections::IVector<mp::Account> m_accounts;
 };
 } // namespace winrt::YnabApi::Models::implementation
 
