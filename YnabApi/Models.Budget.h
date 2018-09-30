@@ -22,9 +22,15 @@ struct Budget : BudgetT<Budget>, ::apicc::BaseModel {
   mp::CurrencyFormat CurrencyFormat() const noexcept { return m_currency_format; }
   void CurrencyFormat(mp::CurrencyFormat currency_format) noexcept { m_currency_format = currency_format; }
   winrt::Windows::Foundation::Collections::IVector<mp::Account> Accounts() { return m_accounts; }
-  void Accounts(const winrt::Windows::Foundation::Collections::IVector<mp::Account> &accounts) { m_accounts = accounts; }
+  void Accounts(const winrt::Windows::Foundation::Collections::IVector<mp::Account> &accounts) {
+    m_accounts = accounts;
+  }
   Windows::Foundation::Collections::IVector<mp::Payee> Payees() { return m_payees; }
   void Payees(const Windows::Foundation::Collections::IVector<mp::Payee> &payees) { m_payees = payees; }
+  Windows::Foundation::Collections::IVector<mp::PayeeLocation> PayeeLocations() { return m_payee_locations; }
+  void PayeeLocations(const Windows::Foundation::Collections::IVector<mp::PayeeLocation> &payee_locations) {
+    m_payee_locations = payee_locations;
+  }
   virtual void Serialize(rwriter &writer) override;
   virtual void Deserialize(rvalue const &document) override;
 
@@ -36,6 +42,7 @@ private:
   mp::CurrencyFormat m_currency_format{nullptr};
   winrt::Windows::Foundation::Collections::IVector<mp::Account> m_accounts;
   winrt::Windows::Foundation::Collections::IVector<mp::Payee> m_payees;
+  winrt::Windows::Foundation::Collections::IVector<mp::PayeeLocation> m_payee_locations;
 };
 } // namespace winrt::YnabApi::Models::implementation
 

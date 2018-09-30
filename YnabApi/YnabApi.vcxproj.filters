@@ -31,6 +31,7 @@
       <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Models.Account.cpp" />
+    <ClCompile Include="Models.Payee.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -44,6 +45,7 @@
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Models.Account.h" />
+    <ClInclude Include="Models.Payee.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
@@ -74,6 +76,9 @@
       <Filter>Models</Filter>
     </Midl>
     <Midl Include="Models.Payee.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Models.PayeeLocation.idl">
       <Filter>Models</Filter>
     </Midl>
   </ItemGroup>

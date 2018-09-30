@@ -1,0 +1,17 @@
+namespace YnabApi
+{
+    namespace Models 
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass PayeeLocation 
+        {
+            PayeeLocation();
+            String Id;
+            String PayeeId;
+            String Latitude;
+            String Longitude;
+            Boolean Deleted;
+        }
+    }
+}
