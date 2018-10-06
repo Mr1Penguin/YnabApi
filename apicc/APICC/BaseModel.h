@@ -86,6 +86,10 @@ protected:
       writer.Int(obj);
     } else if constexpr (std::is_same_v<int64_t, T>) {
       writer.Int64(obj);
+    } else if constexpr (std::is_same_v<uint64_t, T>) {
+      writer.Uint64(obj);
+    } else {
+      static_assert(false, "Unhandled type");
     }
   }
 
@@ -248,6 +252,8 @@ protected:
         return val->GetInt();
       } else if constexpr (std::is_same_v<T, int64_t>) {
         return val->GetInt64();
+      } else if constexpr (std::is_same_v<T, uint64_t>) {
+        return val->GetUint64();
       }
     }
   }
