@@ -4,6 +4,8 @@ import "Models.CurrencyFormat.idl";
 import "Models.Account.idl";
 import "Models.Payee.idl";
 import "Models.PayeeLocation.idl";
+import "Models.CategoryGroup.idl";
+import "Models.Category.idl";
 
 namespace YnabApi
 {
@@ -22,6 +24,8 @@ namespace YnabApi
             Windows.Foundation.Collections.IVector<Account> Accounts;
             Windows.Foundation.Collections.IVector<Payee> Payees;
             Windows.Foundation.Collections.IVector<PayeeLocation> PayeeLocations;
+            Windows.Foundation.Collections.IVector<CategoryGroup> CategoryGroups;
+            Windows.Foundation.Collections.IVector<Category> Categories;
         }
     }
 }

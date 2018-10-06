@@ -1,5 +1,3 @@
-import "NullableString.idl";
-
 namespace YnabApi
 {
     namespace Models

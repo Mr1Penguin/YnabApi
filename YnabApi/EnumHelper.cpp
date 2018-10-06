@@ -64,4 +64,28 @@ Models::AccountType StringToAccountType(const winrt::hstring &string) {
   }
   return Models::AccountType::Unknown;
 }
+
+winrt::hstring GoalTypeToString(Models::GoalType type) {
+  switch (type) {
+  case Models::GoalType::MF:
+    return L"MF";
+  case Models::GoalType::TB:
+    return L"TB";
+  case Models::GoalType::TBD:
+    return L"TBD";
+  }
+  return L"";
+}
+
+Models::GoalType StringToGoalType(const winrt::hstring &string) {
+  switch (hash(string.c_str())) {
+  case hash(L"MF"):
+    return Models::GoalType::MF;
+  case hash(L"TB"):
+    return Models::GoalType::TB;
+  case hash(L"TBD"):
+    return Models::GoalType::TBD;
+  }
+  return Models::GoalType::Unknown;
+}
 } // namespace winrt::YnabApi::Utilities

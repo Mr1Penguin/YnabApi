@@ -1,0 +1,35 @@
+import "NullableString.idl";
+
+namespace YnabApi
+{
+    namespace Models
+    {
+        enum GoalType {
+            TB,
+            TBD,
+            MF,
+            Unknown
+        };
+
+        [bindable]
+        [default_interface]
+        runtimeclass Category 
+        {
+            Category();
+            String Id;
+            String CategoryGroupId;
+            String Name;
+            Boolean Hidden;
+            apicc.NullableString OriginalCategoryGroupId;
+            String Note;
+            Int64 Budgeted;
+            Int64 Activity;
+            GoalType GoalType;
+            String GoalCreationMonth;
+            UInt64 GoalTarget;
+            String GoalTargetMonth;
+            Int32 GoalPercentageComplete;
+            Boolean Deleted;
+        }
+    }
+}

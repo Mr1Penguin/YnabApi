@@ -1,0 +1,16 @@
+namespace YnabApi
+{
+    namespace Models
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass CategoryGroup 
+        {
+            CategoryGroup();
+            String Id;
+            String Name;
+            Boolean Hidden;
+            Boolean Deleted;
+        }
+    }
+}
