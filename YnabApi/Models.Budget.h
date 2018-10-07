@@ -34,6 +34,8 @@ struct Budget : BudgetT<Budget>, ::apicc::BaseModel {
   void Categories(wfc::IVector<mp::Category> categories) noexcept { m_categories = categories; }
   wfc::IVector<mp::MonthInfo> Months() const noexcept { return m_months; }
   void Months(wfc::IVector<mp::MonthInfo> months) noexcept { m_months = months; }
+  wfc::IVector<mp::Transaction> Transactions() const noexcept { return m_transactions; }
+  void Transactions(wfc::IVector<mp::Transaction> transactions) noexcept { m_transactions = transactions; }
 
   virtual void Serialize(rwriter &writer) override;
   virtual void Deserialize(rvalue const &document) override;
@@ -50,6 +52,7 @@ private:
   wfc::IVector<mp::CategoryGroup> m_category_groups;
   wfc::IVector<mp::Category> m_categories;
   wfc::IVector<mp::MonthInfo> m_months;
+  wfc::IVector<mp::Transaction> m_transactions;
 };
 } // namespace winrt::YnabApi::Models::implementation
 

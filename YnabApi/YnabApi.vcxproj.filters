@@ -34,6 +34,8 @@
     <ClCompile Include="Models.Payee.cpp" />
     <ClCompile Include="Models.PayeeLocation.cpp" />
     <ClCompile Include="Models.CategoryGroup.cpp" />
+    <ClCompile Include="Models.Category.cpp" />
+    <ClCompile Include="Models.MonthInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -50,6 +52,8 @@
     <ClInclude Include="Models.Payee.h" />
     <ClInclude Include="Models.PayeeLocation.h" />
     <ClInclude Include="Models.CategoryGroup.h" />
+    <ClInclude Include="Models.Category.h" />
+    <ClInclude Include="Models.MonthInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="YnabApi.def" />
@@ -93,6 +97,9 @@
       <Filter>Models</Filter>
     </Midl>
     <Midl Include="Models.MonthInfo.idl">
+      <Filter>Models</Filter>
+    </Midl>
+    <Midl Include="Models.Transaction.idl">
       <Filter>Models</Filter>
     </Midl>
   </ItemGroup>

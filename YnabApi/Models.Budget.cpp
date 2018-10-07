@@ -8,6 +8,7 @@
 #include "Models.CategoryGroup.h"
 #include "Models.Category.h"
 #include "Models.MonthInfo.h"
+#include "Models.Transaction.h"
 
 using namespace winrt;
 
@@ -24,6 +25,7 @@ void Budget::Serialize(rwriter &writer) {
   Write<implementation::CategoryGroup>(m_category_groups, writer, L"category_groups");
   Write<implementation::Category>(m_categories, writer, L"categories");
   Write<implementation::MonthInfo>(m_months, writer, L"months");
+  Write<implementation::Transaction>(m_transactions, writer, L"transactions");
 }
 
 void Budget::Deserialize(const rvalue &document) {
@@ -38,5 +40,6 @@ void Budget::Deserialize(const rvalue &document) {
   m_category_groups = Read<TVec<implementation::CategoryGroup>>(document, L"category_groups");
   m_categories = Read<TVec<implementation::Category>>(document, L"categories");
   m_months = Read<TVec<implementation::MonthInfo>>(document, L"months");
+  m_transactions = Read<TVec<implementation::Transaction>>(document, L"transactions");
 }
 } // namespace winrt::YnabApi::Models::implementation

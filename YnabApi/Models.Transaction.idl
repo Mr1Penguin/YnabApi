@@ -1,0 +1,43 @@
+namespace YnabApi
+{
+    namespace Models 
+    {
+        enum Cleared {
+            Cleared,
+            Uncleared,
+            Reconciled,
+            Unknown
+        };
+
+        enum FlagColor {
+            Red,
+            Orange,
+            Yellow,
+            Green,
+            Blue,
+            Purple,
+            Unknown
+        };
+
+        [bindable]
+        [default_interface]
+        runtimeclass Transaction 
+        {
+            Transaction();
+            String Id;
+            String Date;
+            Int64 Amount;
+            String Memo;
+            Cleared Cleared;
+            Boolean Approved;
+            FlagColor FlagColor;
+            String AccountId;
+            String PayeeId;
+            String CategoryId;
+            String TransferAccountId;
+            String TransferTransactionId;
+            String ImportId;
+            Boolean Deleted;
+        }
+    }
+}

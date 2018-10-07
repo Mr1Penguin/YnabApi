@@ -171,6 +171,10 @@
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Models.Transaction.h">
+      <DependentUpon>Models.Transaction.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Models.Category.cpp">
@@ -226,6 +230,10 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Models.Transaction.cpp">
+      <DependentUpon>Models.Transaction.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -271,6 +279,9 @@
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Models.Budget.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Models.Transaction.idl">
       <SubType>Designer</SubType>
     </Midl>
   </ItemGroup>

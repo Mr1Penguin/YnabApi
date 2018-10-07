@@ -88,4 +88,65 @@ Models::GoalType StringToGoalType(const winrt::hstring &string) {
   }
   return Models::GoalType::Unknown;
 }
+
+winrt::hstring ClearedToString(Models::Cleared type) {
+  switch (type) {
+  case Models::Cleared::Cleared:
+    return L"cleared";
+  case Models::Cleared::Reconciled:
+    return L"reconciled";
+  case Models::Cleared::Uncleared:
+    return L"uncleared";
+  }
+  return L"";
+}
+
+Models::Cleared StringToCleared(const winrt::hstring &string) {
+  switch (hash(string.c_str())) {
+  case hash(L"cleared"):
+    return Models::Cleared::Cleared;
+  case hash(L"reconciled"):
+    return Models::Cleared::Reconciled;
+  case hash(L"uncleared"):
+    return Models::Cleared::Uncleared;
+  }
+  return Models::Cleared::Unknown;
+}
+
+winrt::hstring FlagColorToString(Models::FlagColor type) {
+  switch (type) {
+  case Models::FlagColor::Red:
+    return L"red";
+  case Models::FlagColor::Orange:
+    return L"orange";
+  case Models::FlagColor::Yellow:
+    return L"yellow";
+  case Models::FlagColor::Green:
+    return L"green";
+  case Models::FlagColor::Blue:
+    return L"blue";
+  case Models::FlagColor::Purple:
+    return L"purple";
+  }
+  return L"";
+}
+
+Models::FlagColor StringToFlagColor(const winrt::hstring &string) {
+  switch (hash(string.c_str())) {
+  case hash(L"red"):
+    return Models::FlagColor::Red;
+  case hash(L"orange"):
+    return Models::FlagColor::Orange;
+  case hash(L"yellow"):
+    return Models::FlagColor::Yellow;
+  case hash(L"green"):
+    return Models::FlagColor::Green;
+  case hash(L"blue"):
+    return Models::FlagColor::Blue;
+  case hash(L"purple"):
+    return Models::FlagColor::Purple;
+  }
+  return Models::FlagColor::Unknown;
+}
+
 } // namespace winrt::YnabApi::Utilities
