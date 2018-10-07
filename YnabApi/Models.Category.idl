@@ -24,6 +24,7 @@ namespace YnabApi
             String Note;
             Int64 Budgeted;
             Int64 Activity;
+            Int64 Balance;
             GoalType GoalType;
             String GoalCreationMonth;
             UInt64 GoalTarget;

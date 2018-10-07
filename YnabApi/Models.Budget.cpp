@@ -7,6 +7,7 @@
 #include "Models.PayeeLocation.h"
 #include "Models.CategoryGroup.h"
 #include "Models.Category.h"
+#include "Models.MonthInfo.h"
 
 using namespace winrt;
 
@@ -22,6 +23,7 @@ void Budget::Serialize(rwriter &writer) {
   Write<implementation::PayeeLocation>(m_payee_locations, writer, L"payee_locations");
   Write<implementation::CategoryGroup>(m_category_groups, writer, L"category_groups");
   Write<implementation::Category>(m_categories, writer, L"categories");
+  Write<implementation::MonthInfo>(m_months, writer, L"months");
 }
 
 void Budget::Deserialize(const rvalue &document) {
@@ -35,5 +37,6 @@ void Budget::Deserialize(const rvalue &document) {
   m_payee_locations = Read<TVec<implementation::PayeeLocation>>(document, L"payee_location");
   m_category_groups = Read<TVec<implementation::CategoryGroup>>(document, L"category_groups");
   m_categories = Read<TVec<implementation::Category>>(document, L"categories");
+  m_months = Read<TVec<implementation::MonthInfo>>(document, L"months");
 }
 } // namespace winrt::YnabApi::Models::implementation

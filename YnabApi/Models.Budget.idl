@@ -6,6 +6,7 @@ import "Models.Payee.idl";
 import "Models.PayeeLocation.idl";
 import "Models.CategoryGroup.idl";
 import "Models.Category.idl";
+import "Models.MonthInfo.idl";
 
 namespace YnabApi
 {
@@ -26,6 +27,7 @@ namespace YnabApi
             Windows.Foundation.Collections.IVector<PayeeLocation> PayeeLocations;
             Windows.Foundation.Collections.IVector<CategoryGroup> CategoryGroups;
             Windows.Foundation.Collections.IVector<Category> Categories;
+            Windows.Foundation.Collections.IVector<MonthInfo> Months;
         }
     }
 }

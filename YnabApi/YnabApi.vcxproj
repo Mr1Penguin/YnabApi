@@ -150,6 +150,10 @@
       <DependentUpon>Models.PayeeLocation.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Models.MonthInfo.h">
+      <DependentUpon>Models.MonthInfo.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="Requests.BudgetsRequest.h">
       <DependentUpon>Requests.BudgetsRequest.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -196,6 +200,10 @@
     </ClCompile>
     <ClCompile Include="Models.PayeeLocation.cpp">
       <DependentUpon>Models.PayeeLocation.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="Models.MonthInfo.cpp">
+      <DependentUpon>Models.MonthInfo.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="Requests.BudgetsRequest.cpp">
@@ -248,6 +256,9 @@
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Models.PayeeLocation.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Models.MonthInfo.idl">
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Requests.BudgetsRequest.idl">

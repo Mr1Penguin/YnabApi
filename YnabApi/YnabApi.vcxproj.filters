@@ -92,5 +92,8 @@
     <Midl Include="Models.Category.idl">
       <Filter>Models</Filter>
     </Midl>
+    <Midl Include="Models.MonthInfo.idl">
+      <Filter>Models</Filter>
+    </Midl>
   </ItemGroup>
 </Project>

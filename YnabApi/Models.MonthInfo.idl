@@ -1,0 +1,22 @@
+import "Models.Category.idl";
+
+namespace YnabApi
+{
+    namespace Models
+    {
+        [bindable]
+        [default_interface]
+        runtimeclass MonthInfo
+        {
+            MonthInfo();
+            String Month;
+            String Note;
+            Int64 Income;
+            Int64 Budgeted;
+            Int64 Activity;
+            Int64 ToBeBudgeted;
+            Int32 AgeOfMoney;
+            Windows.Foundation.Collections.IVector<Category> Categories;
+        }
+    }
+}
